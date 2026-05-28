@@ -38,6 +38,20 @@
         <a href="#projects" class="btn-primary">View My Work</a>
         <a href="PALLETI PRADEEPA - CSE.pdf" class="btn-outline" id="download-resume" download="Pradeepa_Palleti_Resume.pdf">Download Resume</a>
       </div>
+      <div class="hero-highlights">
+        <div class="hero-highlight">
+          <div class="hero-highlight-num">05+</div>
+          <div class="hero-highlight-label">Projects shipped</div>
+        </div>
+        <div class="hero-highlight">
+          <div class="hero-highlight-num">100+</div>
+          <div class="hero-highlight-label">LeetCode problems</div>
+        </div>
+        <div class="hero-highlight">
+          <div class="hero-highlight-num">RBAC</div>
+          <div class="hero-highlight-label">Real-world auth systems</div>
+        </div>
+      </div>
     </div>
     <div class="hero-photo-wrap">
       <div class="photo-frame">
@@ -46,7 +60,7 @@
         <span class="floating-icon icon-a"><i class="fa-solid fa-code"></i></span>
         <span class="floating-icon icon-b"><i class="fa-solid fa-database"></i></span>
         <span class="floating-icon icon-c"><i class="fa-solid fa-bolt"></i></span>
-        <div class="photo-badge">Open to Internships</div>
+        <div class="photo-badge">Open to Work</div>
       </div>
     </div>
   </div>
@@ -156,7 +170,7 @@
     <h2 class="section-title reveal">Featured Projects</h2>
     <div class="projects-grid">
 
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-project="collegenavigator" role="button" tabindex="0" aria-label="Open CollegeNavigator project details">
         <div class="project-header">
           <div class="project-number">01 / CollegeNavigator</div>
           <div class="project-title">CollegeNavigator</div>
@@ -164,12 +178,16 @@
         <div class="project-body">
           <p class="project-desc">A full-stack college discovery platform to search, filter, and compare colleges with JWT auth and dynamic comparison views.</p>
           <div class="project-tech">
-            <span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Tailwind CSS</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link-btn" href="https://github.com/pradeepapalleti/CollegeNavigator" target="_blank" rel="noreferrer" aria-label="CollegeNavigator GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="project-link-btn" href="https://college-navigator-psi.vercel.app/" target="_blank" rel="noreferrer" aria-label="CollegeNavigator Live"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-project="moodify" role="button" tabindex="0" aria-label="Open Moodify project details">
         <div class="project-header">
           <div class="project-number">02 / MOODIFY</div>
           <div class="project-title">MOODIFY</div>
@@ -177,27 +195,18 @@
         <div class="project-body">
           <p class="project-desc">Emotion-aware music recommendation system using NLP sentiment analysis to detect mood and generate personalised Spotify playlists.</p>
           <div class="project-tech">
-            <span class="tech-tag">Python</span><span class="tech-tag">NLP</span><span class="tech-tag">Spotipy</span><span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Python</span><span class="tech-tag">NLP</span><span class="tech-tag">Spotipy</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link-btn" href="https://github.com/pradeepapalleti/Moodify" target="_blank" rel="noreferrer" aria-label="Moodify GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="project-link-btn" href="https://moodify-gso9.onrender.com/" target="_blank" rel="noreferrer" aria-label="Moodify Live"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-project="codesync" role="button" tabindex="0" aria-label="Open CodeSync project details">
         <div class="project-header">
-          <div class="project-number">03 / CSE Portal</div>
-          <div class="project-title">CSE Portal PESITM</div>
-        </div>
-        <div class="project-body">
-          <p class="project-desc">Full-stack academic portal with role-based access for students, faculty, and admins. React UI, Express APIs and PostgreSQL backend.</p>
-          <div class="project-tech">
-            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">PostgreSQL</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-number">04 / CodeSync</div>
+          <div class="project-number">03 / CodeSync</div>
           <div class="project-title">CodeSync</div>
         </div>
         <div class="project-body">
@@ -205,12 +214,64 @@
           <div class="project-tech">
             <span class="tech-tag">JavaScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">Socket.IO</span><span class="tech-tag">HTML/CSS</span>
           </div>
+          <div class="project-links">
+            <a class="project-link-btn" href="https://github.com/pradeepapalleti/Codesync" target="_blank" rel="noreferrer" aria-label="CodeSync GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="project-link-btn" href="https://codesync-virid-tau.vercel.app/" target="_blank" rel="noreferrer" aria-label="CodeSync Live"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-project="mentor-management" role="button" tabindex="0" aria-label="Open Mentor Management project details">
+        <div class="project-header">
+          <div class="project-number">04 / Mentor Management</div>
+          <div class="project-title">Mentor Management</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Academic institutions often lack a structured digital system to track mentee progress, activities, and feedback. This role-based web platform bridges that gap.</p>
+          <div class="project-tech">
+            <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Bootstrap</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link-btn" href="https://github.com/pradeepapalleti/Mentor-Management" target="_blank" rel="noreferrer" aria-label="Mentor Management GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="project-link-btn" href="https://mentorbridge.infinityfreeapp.com/" target="_blank" rel="noreferrer" aria-label="Mentor Management Live"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-project="cse-portal" role="button" tabindex="0" aria-label="Open CSE Portal PESITM project details">
+        <div class="project-header">
+          <div class="project-number">05 / CSE Portal</div>
+          <div class="project-title">CSE Portal PESITM</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Academic institutions rely on fragmented tools to manage student, faculty, and admin workflows, leading to inefficiency and poor communication.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">PostgreSQL</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link-btn" href="https://github.com/shubhamrajput27/CSE-Portal-PESITM" target="_blank" rel="noreferrer" aria-label="CSE Portal GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<div class="project-modal" id="project-modal" aria-hidden="true">
+  <div class="project-modal-backdrop" data-close-modal></div>
+  <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+    <button class="project-modal-close" type="button" aria-label="Close project details" data-close-modal>×</button>
+    <div class="project-modal-kicker">Featured Project</div>
+    <div class="project-modal-snapshot" id="project-modal-snapshot" hidden>
+      <img id="project-modal-snapshot-img" alt="Project snapshot preview" />
+    </div>
+    <h3 id="project-modal-title"></h3>
+    <p class="project-modal-problem" id="project-modal-problem"></p>
+    <div class="project-modal-tech" id="project-modal-tech"></div>
+    <div class="project-modal-links" id="project-modal-links"></div>
+  </div>
+</div>
 
 <!-- DIVIDER projectsâ†’experience: mint fades into warm peach -->
 <div class="divider" style="background:#e4f4ea;">
