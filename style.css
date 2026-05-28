@@ -3,6 +3,9 @@
     --text-dark: #2c3a4a;
     --text-mid: #4a5568;
     --text-light: #8a9bac;
+    --cursor-x: 50vw;
+    --cursor-y: 20vh;
+    --cursor-active: 0;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,8 +16,46 @@
     color: var(--text-dark);
     overflow-x: hidden;
     font-size: 16px;
+    position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  body::before {
+    inset: 0;
+    background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(91, 155, 213, 0.24) 0, rgba(91, 155, 213, 0.12) 12%, rgba(91, 155, 213, 0.05) 24%, rgba(91, 155, 213, 0) 58%);
+    filter: blur(12px);
+    mix-blend-mode: screen;
+    opacity: var(--cursor-active);
+  }
+
+  body::after {
+    width: 18px;
+    height: 18px;
+    left: var(--cursor-x);
+    top: var(--cursor-y);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 24px rgba(91, 155, 213, 0.45), 0 0 0 10px rgba(91, 155, 213, 0.08);
+    background: rgba(255, 255, 255, 0.2);
+    mix-blend-mode: screen;
+    opacity: var(--cursor-active);
   }
 
   /* â”€â”€ NAVBAR â”€â”€ */
@@ -152,7 +193,7 @@
   }
   .hero-highlights {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.8rem;
     max-width: 560px;
     margin-top: 1.35rem;
@@ -606,6 +647,13 @@
   /* â”€â”€ REVEAL â”€â”€ */
   .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+      display: none;
+    }
+  }
 
   /* â”€â”€ RESPONSIVE â”€â”€ */
   @media (max-width: 768px) {

@@ -11,6 +11,50 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach((el) => observer.observe(el));
 
+// Cursor glow effect
+const cursorMotionQuery = window.matchMedia('(pointer: fine)');
+const cursorState = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
+  active: false,
+  rafId: null
+};
+
+function updateCursorEffect() {
+  document.documentElement.style.setProperty('--cursor-x', `${cursorState.x}px`);
+  document.documentElement.style.setProperty('--cursor-y', `${cursorState.y}px`);
+  document.documentElement.style.setProperty('--cursor-active', cursorState.active ? '1' : '0');
+  cursorState.rafId = null;
+}
+
+if (cursorMotionQuery.matches) {
+  document.addEventListener('pointermove', (event) => {
+    cursorState.x = event.clientX;
+    cursorState.y = event.clientY;
+    cursorState.active = true;
+
+    if (!cursorState.rafId) {
+      cursorState.rafId = requestAnimationFrame(updateCursorEffect);
+    }
+  }, { passive: true });
+
+  document.addEventListener('pointerleave', () => {
+    cursorState.active = false;
+
+    if (!cursorState.rafId) {
+      cursorState.rafId = requestAnimationFrame(updateCursorEffect);
+    }
+  });
+
+  window.addEventListener('blur', () => {
+    cursorState.active = false;
+
+    if (!cursorState.rafId) {
+      cursorState.rafId = requestAnimationFrame(updateCursorEffect);
+    }
+  });
+}
+
 // Active nav
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
