@@ -58,6 +58,40 @@ if (cursorMotionQuery.matches) {
 // Active nav
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
+const nav = document.querySelector('nav');
+const navToggle = document.querySelector('.nav-toggle');
+const navToggleIcon = navToggle ? navToggle.querySelector('i') : null;
+
+function setNavOpen(isOpen) {
+  if (!nav || !navToggle || !navToggleIcon) {
+    return;
+  }
+
+  nav.classList.toggle('nav-open', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggleIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+}
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    setNavOpen(!nav.classList.contains('nav-open'));
+  });
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      setNavOpen(false);
+    }
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    setNavOpen(false);
+  }
+});
+
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach((sec) => {
@@ -119,6 +153,14 @@ const projectData = {
     github: 'https://github.com/shubhamrajput27/CSE-Portal-PESITM',
     live: '',
     snapshot: 'project-snapshots/cse-portal-pesitm.png'
+  },
+  'titanic-survival-predictor': {
+    title: 'Titanic Survival Predictor',
+    problem: 'Built a machine learning application using Logistic Regression to predict passenger survival on the Titanic dataset. The project includes data preprocessing, feature scaling, model training, and evaluation using a confusion matrix and ROC analysis, plus an exported model for browser-based inference with an interactive frontend for real-time predictions.',
+    tech: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib'],
+    github: 'https://github.com/pradeepapalleti/titanic',
+    live: '',
+    snapshot: ''
   }
 };
 
