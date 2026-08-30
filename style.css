@@ -84,7 +84,7 @@
   .cursor-pointer {
     display: block;
     line-height: 1;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: rgba(58, 102, 149, 0.75);
     transform: rotate(-10deg);
   }
