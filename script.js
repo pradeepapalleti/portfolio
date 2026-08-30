@@ -13,7 +13,15 @@ reveals.forEach((el) => observer.observe(el));
 
 // Cursor glow effect
 const cursorMotionQuery = window.matchMedia('(pointer: fine)');
+const cursorFollower = document.querySelector('.cursor-follower');
 const cursorState = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
+  active: false,
+  rafId: null
+};
+
+const followerState = {
   x: window.innerWidth / 2,
   y: window.innerHeight / 2,
   active: false,
@@ -27,16 +35,56 @@ function updateCursorEffect() {
   cursorState.rafId = null;
 }
 
+function updateFollowerPosition() {
+  if (!cursorFollower) {
+    return;
+  }
+
+  followerState.x += (cursorState.x - followerState.x) * 0.12;
+  followerState.y += (cursorState.y - followerState.y) * 0.12;
+
+  cursorFollower.style.left = `${followerState.x}px`;
+  cursorFollower.style.top = `${followerState.y}px`;
+  cursorFollower.style.opacity = cursorState.active ? '1' : '0';
+
+  if (cursorState.active) {
+    followerState.rafId = requestAnimationFrame(updateFollowerPosition);
+  } else {
+    followerState.rafId = null;
+    cursorFollower.classList.remove('is-visible');
+  }
+}
+
 if (cursorMotionQuery.matches) {
   document.addEventListener('pointermove', (event) => {
     cursorState.x = event.clientX;
     cursorState.y = event.clientY;
     cursorState.active = true;
 
+    if (cursorFollower) {
+      cursorFollower.classList.add('is-visible');
+    }
+
     if (!cursorState.rafId) {
       cursorState.rafId = requestAnimationFrame(updateCursorEffect);
     }
+
+    if (!followerState.rafId) {
+      followerState.rafId = requestAnimationFrame(updateFollowerPosition);
+    }
   }, { passive: true });
+
+  document.addEventListener('pointerdown', () => {
+    if (cursorFollower) {
+      cursorFollower.classList.add('is-active');
+    }
+  });
+
+  document.addEventListener('pointerup', () => {
+    if (cursorFollower) {
+      cursorFollower.classList.remove('is-active');
+    }
+  });
 
   document.addEventListener('pointerleave', () => {
     cursorState.active = false;
