@@ -194,6 +194,14 @@ const projectData = {
     live: 'https://mentorbridge.infinityfreeapp.com/',
     snapshot: 'project-snapshots/mentor-management.png'
   },
+  'faq-bot': {
+    title: 'FAQ Bot (n8n + RAG)',
+    problem: 'Organizations often struggle to keep FAQ responses consistent and up to date across support channels. This chatbot indexes company knowledge into a vector database and retrieves the most relevant FAQ chunks before answering, ensuring grounded and context-aware responses.',
+    tech: ['n8n', 'RAG', 'Supabase', 'Gemini', 'PostgreSQL'],
+    github: 'https://github.com/pradeepapalleti/FAQ_chatbot_n8n',
+    live: '',
+    snapshot: 'project-snapshots/faq_bot.png'
+  },
   'cse-portal': {
     title: 'CSE Portal PESITM',
     problem: 'Academic institutions rely on fragmented tools to manage student, faculty, and admin workflows, leading to inefficiency and poor communication. The CSE Portal centralizes these operations with role-based access control, enabling each user type to interact with only their relevant data and features.',
